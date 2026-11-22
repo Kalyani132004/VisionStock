@@ -1,0 +1,24 @@
+# Web framework
+fastapi
+uvicorn[standard]
+
+# Database
+sqlalchemy
+pymysql
+cryptography
+
+# Login
+PyJWT
+bcrypt
+
+# Settings
+python-dotenv
+
+# Computer vision (large download - this installs PyTorch too)
+numpy
+opencv-python
+ultralytics
+lapx            # needed by the ByteTrack tracker
+
+# Optional: only needed if KAFKA_ENABLED=true
+# kafka-python

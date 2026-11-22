@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | VisionStock</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-left">
+      <div class="brand-icon" style="width:56px;height:56px;font-size:28px"><i class="bi bi-eye"></i></div>
+      <h1>VisionStock</h1>
+      <p>Create a staff account to monitor shelves, check stock and see low stock alerts as they happen.</p>
+      <ul class="login-points">
+        <li><i class="bi bi-check-circle-fill"></i>View the live dashboard and alerts</li>
+        <li><i class="bi bi-check-circle-fill"></i>Add and edit products, shelves and stock</li>
+        <li><i class="bi bi-check-circle-fill"></i>Start and stop camera detection</li>
+      </ul>
+    </div>
+
+    <div class="login-right">
+      <div class="login-box">
+        <a href="login.html" class="text-muted" style="font-size:14px"><i class="bi bi-arrow-left"></i> Back to login</a>
+        <h2 class="mt-3">Create account</h2>
+        <p class="text-muted mb-4">Register as a staff member</p>
+
+        <div class="alert alert-danger py-2" id="registerError" style="display:none"></div>
+
+        <form id="registerForm" novalidate>
+          <div class="mb-3">
+            <label class="form-label" for="name">Full name</label>
+            <input type="text" class="form-control" id="name" placeholder="Your name" maxlength="100" autocomplete="name" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="email">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com" maxlength="120" autocomplete="email" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="password">Password</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="password" placeholder="At least 8 characters" maxlength="72" autocomplete="new-password" required>
+              <button class="btn btn-outline-secondary" type="button" id="showPass" aria-label="Show password"><i class="bi bi-eye"></i></button>
+            </div>
+            <div class="form-text" id="passHint">Use 8 or more characters with at least one letter and one number.</div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="confirmPassword">Confirm password</label>
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Type the password again" maxlength="72" autocomplete="new-password" required>
+          </div>
+          <button type="submit" class="btn-main w-100" style="padding:12px">Create account</button>
+        </form>
+
+        <p class="text-center mt-4 mb-0">Already have an account? <a href="login.html">Login</a></p>
+        <div class="demo-note">Accounts made here are Staff accounts. Admin accounts are created by the system administrator.</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

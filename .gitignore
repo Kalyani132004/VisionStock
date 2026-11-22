@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pt
+.env
+.secret_key
+*.db
+videos/*.mp4
