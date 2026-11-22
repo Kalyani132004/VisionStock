@@ -1,11 +1,5 @@
 # routes/auth.py - login and registration
-#
-#   POST /api/auth/register   new Staff account (anyone can do this)
-#   POST /api/auth/login      returns a token
-#   GET  /api/auth/me         who am I
-#
-# Admin accounts cannot be made here. Use the command:
-#   python -m backend.create_admin
+
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.exc import IntegrityError

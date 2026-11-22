@@ -19,8 +19,6 @@ def get_status(qty, minimum):
 
 
 def send_notification(message: dict):
-    """With Kafka: publish the event (the consumer sends it to the browser).
-    Without Kafka: send it to the browser directly with WebSocket."""
     if KAFKA_ENABLED:
         if kafka_service.publish_event(message):
             return
@@ -28,9 +26,6 @@ def send_notification(message: dict):
 
 
 def update_stock(db, product, shelf, qty):
-    """Save a new quantity for a product on a shelf.
-    Creates 'Stock update' and 'Low stock' events when needed.
-    Returns True if something changed."""
     now = datetime.now()
     row = db.query(Inventory).filter(
         Inventory.product_id == product.product_id,

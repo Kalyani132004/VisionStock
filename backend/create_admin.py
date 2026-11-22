@@ -2,12 +2,6 @@
 #
 # This is the ONLY way to get an Admin (like "createsuperuser" in Django).
 # The website can only create Staff accounts.
-#
-# Run it from the project folder (the one that has backend/ and frontend/):
-#     python -m backend.create_admin
-#
-# Optional: give name and email on the command line, the password is always asked:
-#     python -m backend.create_admin --name "Om Sai" --email om@example.com
 
 import argparse
 import getpass

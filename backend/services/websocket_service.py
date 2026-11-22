@@ -26,8 +26,6 @@ class ConnectionManager:
                 self.disconnect(connection)
 
     def broadcast_from_thread(self, message: dict):
-        """Our detection code runs in a normal thread, so we use this
-        function to hand the message over to the async loop."""
         if self.loop is None or not self.loop.is_running():
             return
         asyncio.run_coroutine_threadsafe(self.broadcast(message), self.loop)

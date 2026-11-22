@@ -5,7 +5,6 @@ import numpy as np
 
 
 def roi_to_pixels(shelf, frame_width, frame_height):
-    """Shelf ROI is saved as percent. Convert it to pixels: (x1, y1, x2, y2)."""
     x1 = int(shelf["roi_x"] / 100 * frame_width)
     y1 = int(shelf["roi_y"] / 100 * frame_height)
     x2 = int((shelf["roi_x"] + shelf["roi_w"]) / 100 * frame_width)
@@ -14,15 +13,13 @@ def roi_to_pixels(shelf, frame_width, frame_height):
 
 
 def center_inside(box, roi):
-    """Is the centre of a bounding box inside the ROI?"""
     cx = (box[0] + box[2]) // 2
     cy = (box[1] + box[3]) // 2
     return roi[0] <= cx <= roi[2] and roi[1] <= cy <= roi[3]
 
 
 def occupancy_percent(roi, boxes):
-    """How much of the ROI area is covered by detected objects (0-100).
-    We make a small black image of the ROI and paint each box white."""
+
     width = roi[2] - roi[0]
     height = roi[3] - roi[1]
     if width <= 0 or height <= 0:
@@ -43,7 +40,6 @@ def occupancy_percent(roi, boxes):
 
 
 def draw_overlay(frame, shelf_rois, detections):
-    """Draw shelf regions and detection boxes on the frame."""
     # shelf regions
     for item in shelf_rois:
         x1, y1, x2, y2 = item["roi"]

@@ -1,7 +1,5 @@
 # vision/pipeline.py - the main detection loop (runs in a background thread)
-#
-# camera -> resize -> YOLO + tracker -> count per shelf -> save to database
-#                                    -> draw boxes -> JPEG for the live page
+
 
 import threading
 import time

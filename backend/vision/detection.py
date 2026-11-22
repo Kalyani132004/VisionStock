@@ -16,10 +16,6 @@ def load_model():
 
 
 def detect_and_track(frame):
-    """Run YOLO with the ByteTrack tracker on one frame.
-    Returns a list like:
-      {"id": 3, "label": "bottle", "conf": 0.91, "box": (x1, y1, x2, y2)}
-    The id stays the same for the same object in the next frames."""
     yolo = load_model()
     results = yolo.track(frame, persist=True, tracker="bytetrack.yaml",
                          conf=CONFIDENCE, verbose=False)

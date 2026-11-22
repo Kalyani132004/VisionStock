@@ -4,13 +4,6 @@ from .shelf_monitor import center_inside
 
 
 def count_by_shelf(detections, shelf_rois, history, frame_number):
-    """Returns {shelf_id: {"bottle": 4, "box": 2}}.
-
-    Steps:
-      1. For every detection, find the shelf whose region contains it.
-      2. Remember its tracker ID for that shelf.
-      3. Count the unique IDs seen recently (see tracking.py).
-    """
     seen_keys = []
 
     for det in detections:

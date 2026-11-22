@@ -1,7 +1,4 @@
 # kafka_service.py - OPTIONAL Kafka event streaming
-# Kafka is switched off by default (KAFKA_ENABLED=false in .env).
-# Flow when it is ON:
-#   inventory change -> producer publishes event -> consumer reads it -> WebSocket -> dashboard
 
 import json
 import threading

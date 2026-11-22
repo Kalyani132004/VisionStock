@@ -1,7 +1,5 @@
 # main.py - start the FastAPI application
-#
-# Run from the project folder (the one that contains backend/ and frontend/):
-#     uvicorn backend.main:app --reload
+
 
 import asyncio
 from contextlib import asynccontextmanager
@@ -23,14 +21,12 @@ from .vision.pipeline import pipeline
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # --- runs when the server starts ---
     Base.metadata.create_all(bind=engine)          # create tables if they do not exist
 
     db = SessionLocal()
     try:
         seed_database(db)                           # sample data for an empty database
 
-        # remind the developer if there is no Admin yet
         if db.query(User).filter(User.role == "Admin").count() == 0:
             print("\n  No Admin account yet. Create one with:")
             print("      python -m backend.create_admin\n")
@@ -86,6 +82,5 @@ async def inventory_socket(websocket: WebSocket, token: str = ""):
 
 
 # ---------- Serve the frontend at http://127.0.0.1:8000 ----------
-# (this must stay at the END so it does not hide the API routes)
 if FRONTEND_DIR.exists():
     app.mount("/", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")
